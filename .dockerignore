@@ -1,0 +1,13 @@
+.git
+.gitignore
+**/.DS_Store
+.env
+.env.*
+!.env.example
+**/node_modules
+**/__pycache__
+*.pyc
+.venv
+venv
+erp-playground/dist
+.cursor
