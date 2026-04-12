@@ -93,9 +93,7 @@ export default function Dashboard({ onFormSubmit }: { onFormSubmit: () => void }
   return (
     <div className="p-6 space-y-6">
       <h2 className="text-2xl font-bold tracking-tight text-slate-900">
-        <span data-widget-global-logistics className="inline">
-          Global logistics
-        </span>
+        Global logistics
       </h2>
 
       {/* Metrics Row */}

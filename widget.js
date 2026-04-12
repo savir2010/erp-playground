@@ -109,17 +109,6 @@
             }
         }
 
-        function resolveGlobalLogisticsElement() {
-            const marked = document.querySelector('[data-widget-global-logistics]');
-            if (marked) return marked;
-            for (const el of document.querySelectorAll('span,b,strong,i,em,h1,h2,h3,h4,p')) {
-                if (el.closest('[data-widget-chrome]')) continue;
-                const t = el.textContent && el.textContent.trim();
-                if (t && /^Global logistics$/i.test(t)) return el;
-            }
-            return null;
-        }
-
         function syncClipHighlightBox() {
             if (!clipHighlightOverlay) return;
             const target = clipHighlightOverlay._targetEl;
@@ -197,14 +186,6 @@
                 },
                 { once: true }
             );
-        }
-
-        function startGlobalLogisticsHighlight() {
-            startClipRevealOnTarget(resolveGlobalLogisticsElement());
-        }
-
-        function stopGlobalLogisticsHighlight() {
-            stopClipRevealHighlight();
         }
 
         const lastPointer = {
@@ -541,10 +522,6 @@
                 () => {
                     if (token !== glassCircleOpenToken) return;
                     setGuidePanelOpen(true);
-                    requestAnimationFrame(() => {
-                        if (token !== glassCircleOpenToken) return;
-                        startGlobalLogisticsHighlight();
-                    });
                 },
                 { once: true }
             );
