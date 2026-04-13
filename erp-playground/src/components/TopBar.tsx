@@ -1,6 +1,10 @@
 import { Search, Bell, User, Plus, ChevronDown } from 'lucide-react';
 
-export default function TopBar() {
+interface TopBarProps {
+  onOpenSettings: () => void;
+}
+
+export default function TopBar({ onOpenSettings }: TopBarProps) {
   return (
     <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-40">
       <div className="flex items-center flex-1 max-w-xl">
@@ -22,7 +26,11 @@ export default function TopBar() {
         
         <div className="h-8 w-px bg-slate-200 mx-2"></div>
         
-        <button className="flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded-md transition-colors group">
+        <button
+          type="button"
+          onClick={onOpenSettings}
+          className="flex items-center gap-2 p-1.5 hover:bg-slate-50 rounded-md transition-colors group"
+        >
           <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-600">
             <User className="w-5 h-5" />
           </div>
